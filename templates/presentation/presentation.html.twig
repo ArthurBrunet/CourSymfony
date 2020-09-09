@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PresentationController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Bonjour je suis {{ nom }} et je loge actuellement au {{ adresse }} ! ✅</h1>
+    {% for prenom,age in prenoms %}
+        <p  {% if(loop.first) %}style="font-weight: bold"{% elseif(loop.last) %}style="color:red"{% endif %}>je suis {{ prenom|capitalize }} et j'ai {{ age }} ans</p>
+        {% if age > 18 %}
+            <p>je majeur</p>
+        {% elseif age == 18 %}
+            <p>je viens de devenir majeur</p>
+        {% else %}
+            <p>je mineur</p>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+    <p>salut pres</p>
+{% endblock %}
